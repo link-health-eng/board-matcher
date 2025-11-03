@@ -92,9 +92,11 @@ bash start.sh
 - **2025-11-03:** Initial Replit setup
   - Installed Python 3.11 and Node.js 20
   - Configured Vite to bind to 0.0.0.0:5000 for Replit webview
+  - Added `allowedHosts: true` to Vite config to allow Replit proxy access (critical for iframe hosting)
   - Created startup script to run backend and frontend together
   - Set up workflow for automatic startup
   - Added comprehensive .gitignore
+  - Configured deployment for VM target with build step
 
 ## Notes
 - The backend uses an in-memory dataset that must be uploaded via the UI
