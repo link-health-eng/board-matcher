@@ -59,6 +59,28 @@ export default function App() {
     }
   };
 
+  const handleDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = async (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const droppedFiles = e.dataTransfer.files;
+    if (droppedFiles && droppedFiles[0]) {
+      const droppedFile = droppedFiles[0];
+      
+      if (droppedFile.name.endsWith('.xlsx') || droppedFile.name.endsWith('.xls')) {
+        setFile(droppedFile);
+        await uploadFile(droppedFile);
+      } else {
+        showToast("Please upload an Excel file (.xlsx or .xls)", "error");
+      }
+    }
+  };
+
   const handleMatch = async () => {
     setLoading(true);
     setMatches([]);
@@ -166,6 +188,8 @@ export default function App() {
         <label
           htmlFor="file-upload"
           className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg py-10 cursor-pointer transition w-full"
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
         >
           <input
             ref={fileInputRef}
