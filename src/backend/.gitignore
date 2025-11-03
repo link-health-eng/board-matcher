@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+saved_models/*.pkl
+data/*.csv
+.env
+.DS_Store
