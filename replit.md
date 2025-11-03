@@ -47,11 +47,9 @@ Board Matcher is a TF-IDF-based connection matching application that helps find 
 ### Frontend
 - **Port:** 5000 (required for Replit webview)
 - **Host:** 0.0.0.0 (allows Replit proxy access)
-- **API URL:** Set via VITE_API_URL environment variable in `src/frontend/.env`
-
-### Environment Variables
-- `VITE_API_URL`: Backend API URL (set in src/frontend/.env)
-- `REPLIT_DEV_DOMAIN`: Automatically provided by Replit
+- **API Communication:** Uses Vite proxy to forward `/api/*` requests to `localhost:8000`
+  - All frontend API calls use `/api` as the base URL
+  - Vite proxy handles routing to the backend seamlessly
 
 ## Running the Application
 
@@ -89,10 +87,12 @@ bash start.sh
 - lucide-react
 
 ## Recent Changes
-- **2025-11-03:** Initial Replit setup
+- **2025-11-03:** Initial Replit setup and fixes
   - Installed Python 3.11 and Node.js 20
   - Configured Vite to bind to 0.0.0.0:5000 for Replit webview
   - Added `allowedHosts: true` to Vite config to allow Replit proxy access (critical for iframe hosting)
+  - Configured Vite proxy to route `/api/*` requests to backend at `localhost:8000`
+  - Fixed drag-and-drop file upload functionality (added proper event handlers)
   - Created startup script to run backend and frontend together
   - Set up workflow for automatic startup
   - Added comprehensive .gitignore
