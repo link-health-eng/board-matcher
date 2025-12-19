@@ -1,4 +1,3 @@
 # board-matcher
 
-![Demo GIF](https://github.com/user-attachments/assets/7d4bf6bf-3fb8-4d5e-b828-29e551cd87c4)
-
+![output](https://github.com/user-attachments/assets/3990471c-6638-470b-b811-83ac27e14dc8)
